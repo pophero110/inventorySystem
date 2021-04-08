@@ -1,0 +1,11 @@
+<h1 class="text-center">Upload sale data (.csv)</h1>
+
+<div class="container text-center">
+<%= form_with(model: @sale, local: true) do |f| %>
+<%= f.date_field :date, :value => Time.now.strftime("%Y-%m-%d") %>
+  <%= f.file_field :data, required: true %>
+
+  <%= submit_tag "upload" %>
+<% end %>
+
+</div>

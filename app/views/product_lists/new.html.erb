@@ -1,0 +1,13 @@
+<h1 class="text-center">Upload products data (.csv)</h1>
+
+<div class="container text-center">
+<%= form_with(model: @product_list, local: true) do |f| %>
+  <%= f.file_field :data, required: true %>
+
+      <%= submit_tag "upload" %>
+    </div>
+
+
+<% end %>
+
+</div>

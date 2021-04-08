@@ -1,0 +1,50 @@
+<nav class="navbar bg-dark fixed-top navbar-dark flex-md-nowrap p-0 shadow">
+      <%= link_to "Inventory System", root_path, class: "navbar-brand col-sm-3 col-md-2 mr-0", id: "logo" %>
+   
+
+      <input type="text" class="form-control form-control-dark w-100" placeholder="Search" aria-label="Search">
+      <ul class="class navbar-nav px-3">
+      <li class="nav-item text-nowrap">
+      <% # <a href="" class="nav-link">Sign out</a> %>
+     <% if logged_in? %>
+           <li class="nav-item">
+            <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle text-info"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <%= "(Admin)" if current_user.admin? %> Profiles [<%= current_user.username %>]
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+              <%= link_to "View your profile", user_path(current_user), class: "dropdown-item" %>
+            
+              <%= link_to "Edit your profile", edit_user_path(current_user), class: "dropdown-item" %>
+               <%= link_to "Log out", logout_path, method: :delete, class: "dropdown-item text-danger" %>
+  
+          
+          </li>
+         
+          </li>
+          <% else %>
+        
+           <%= link_to "Log in", login_path, class: "nav-link text-info font-weight-bold" %>
+           
+        
+          </li>
+         
+          <% end %>
+
+
+      </li>
+      </ul>
+    </nav>
+
+
+
+    

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Demo</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", media: "all", 'data-turbolinks-track': "reload" %>
+    <%= javascript_pack_tag "application", 'data-turbolinks-track': "reload" %>
+  </head>
+
+  <body>
+   
+   <%= render "layouts/navigation" %>
+
+  <div class="container-fluid">
+  <div class="row">
+  <nav class="col-md-2 d-md-block bg-light sidebar">
+  <%= render "layouts/sidebar" %>
+  </nav>
+   <main class="col-md-9 ml-sm-auto col-lg-10 pt-5">
+   <%= render "layouts/messages" %>
+     <%= yield %>
+  </main>
+  </div>
+  </div>
+  </body>
+</html>
