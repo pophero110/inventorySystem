@@ -5,10 +5,18 @@ class ProductListsController < ApplicationController
 
   def index
     @product_lists = ProductList.all
+    @products = Product.all
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @products.to_csv, filename: "users-#{Date.today}.csv" }
+    end
   end
 
   def new
     @product_list = ProductList.new
+    
+
   end
 
   def create
