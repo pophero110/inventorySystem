@@ -29,6 +29,8 @@ class ProductsController < ApplicationController
       @product = Product.find_by(barcode: params[:id])
       if @product == nil
         redirect_to root_path + "?error=true" + "&" + "barcode=" + params[:id]
+      else
+        redirect_to @product
       end
     else
       @product = Product.find(params[:id])
